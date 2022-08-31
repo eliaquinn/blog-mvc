@@ -17,7 +17,7 @@
 -----/Template
 -----/View
 /lib
------/-----/Database
+-----/Database
 index.php
 ````
 
