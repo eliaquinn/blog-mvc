@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .post-teste {
+            background: #b1b6f0;
+            border: 1px solid #5a5f94;
+            padding: 10px;
+            margin-bottom: 5px;
+            border-radius: 5px;
+        }
+        .post-teste h2 {
+            padding-bottom: 5px;
+        }
+        .post-teste p {
+            padding-bottom: 10px;
+        }
+        .post-teste .coments {
+            background: #dadcf2;
+            padding: 5px;
+            border-radius: 3px;
+        }
+        .post-teste .coments h3 {
+            padding-left: 10px;
+            font-size: 12pt;
+        }
+        .post-teste .coments h2 {
+            font-size: 14pt;
+        }
+        .post-teste .coments span {
+            font-size: 11pt;
+            padding-left: 20px;
+            border-bottom: 1px solid #ccc;
+        }
+        .post-teste .coments span strong {
+            float: right;
+            padding-right: 10px;
+        }
+        .post-teste .coments form input:nth-child(1) {
+            display: block;
+            width: 100%;
+            padding: 0 10px;
+            height: 30px;
+            margin-bottom: 5px;
+        }
+        .post-teste .coments form div {
+            display: flex;
+            margin-bottom: 10px;
+        }
+        .post-teste .coments form div input{
+            padding: 0 10px;
+            margin-right: 10px;
+            height: 35px;
+        }
+        .post-teste .coments form div button {
+            background: #e9ff6b;
+            padding: 0px 10px;
+            height: 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            color: #333;
+            border: 1px solid #e6cf08;
+        }
+        .post-teste .coments form div button:hover {
+            background: #dfc907;
+            color: #c40d0d;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="post-teste">
+        <h2>{{titulo}}</h2>
+        <p>{{conteudo}}</p>
+        <div class="coments">
+            <h2>Comentar:</h2>
+            <form method="POST" action="?page=post&method=addComent">
+                <input type="text" name="nome" placeholder="Nome">
+                <div>
+                    <input type="text" name="comentario" placeholder="Comentário">
+                    <input type="hidden" name="id" value="{{id}}">
+                    <button>Comentar</button>
+                </div>
+            </form>
+
+            <h2>Comentarios:</h2>
+
+            {% if coments == false %}
+                <span>Nenhum comentário foi encontrado para esta postagem</span>
+            {% else  %}
+                {% for com in coments %}
+                    <h3>{{com.nome}}</h3>
+                    <span>{{com.mensagem}}</span>
+                {% endfor %}
+            {% endif %}
+            <br>
+        </div>
+    </div>
+</body>
+</html>

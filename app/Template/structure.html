@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        body {
+            background: #3e4352;
+            color: #fff;
+        }
+        .container {
+            background: #757d99;
+            width: 40vw;
+            padding: 20px;
+            border-radius: 10px;
+            border: 2px solid #9c9c9c;
+            margin: 80px auto;
+        }
+        .container header {
+            padding-bottom: 10px;
+        }
+        .container ul {
+            list-style: none;
+            padding-top: 10px;
+        }
+        .container ul li {
+            display: inline;
+            text-transform: uppercase;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+        .container ul li:nth-child(3) {
+            float: right;
+        }
+        .container ul li a {
+            text-decoration: none;
+            color: #fff;
+        }
+        .container ul li a:active {
+            color: #f00;
+        }
+        .container .content {
+            background: #a8b2cf;
+            padding: 10px;
+            border-radius: 5px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <!-- a estrutura é como se fosse a nossa forma, ela é estatica -->
+    <div class="container">
+        <header>
+            <h2>Blog</h2>
+            <ul>
+                <li><a href="?page=home">Home</a></li>
+                <li><a href="?page=sobre">Sobre</a></li>
+                <li><a href="?page=admin">Admin</a></li>
+            </ul>
+        </header>
+        <div class="content">
+            {{dinamic_area}}
+        </div>
+    </div>
+    </body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .he {
+            margin-bottom: 10px;
+        }
+        .btn {
+            background: #e9ff6b;
+            padding: 5px 10px;
+            border-radius: 5px;
+            text-decoration: none;
+            color: #333;
+            border: 1px solid #e6cf08;
+        }
+        .btn:hover {
+            background: #dfc907;
+            color: #c40d0d;
+        }
+        table {
+            margin-top: 10px;
+            width: 100%;
+            background: #fff;
+        }
+        table thead {
+            background: #c2c2c2;
+            height: 25px;
+        }
+        table tbody tr {
+            height: 25px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h2 class="he">Gerenciador de Conteudo</h2>
+    <a href="?page=admin&method=create" class="btn">Criar Publicação</a>
+    <table>
+        <thead>
+            <th>Id</th>
+            <th>Titulo</th>
+            <th>Alteração</th>
+            <th>Deleção</th>
+        </thead>
+        <tbody>
+            {% for p in allposts %}
+                <tr>
+                    <td>{{p.id}}</td>
+                    <td>{{p.titulo}}</td>
+                    <td><a href="?page=admin&method=change&id={{p.id}}">Alterar</a></td>
+                    <td><a href="?page=admin&method=delete&id={{p.id}}">Excluir</a></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

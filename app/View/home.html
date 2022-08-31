@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .post-teste {
+            background: #b1b6f0;
+            border: 1px solid #5a5f94;
+            padding: 10px;
+            margin-bottom: 5px;
+            border-radius: 5px;
+            overflow: hidden;
+            height: 84px;
+        }
+        .post-teste h2 {
+            padding-bottom: 5px;
+        }
+        .post-teste h2 a {
+            color: #333;
+            text-decoration: none;
+        }
+        .post-teste h2:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    {% for post in postagens %}
+        <div class="post-teste">
+            <h2><a href="?page=post&id={{post.id}}">{{post.titulo}}</a></h2>
+            <p>{{post.conteudo}}</p>
+        </div>
+    {% endfor %}
+</body>
+</html>
